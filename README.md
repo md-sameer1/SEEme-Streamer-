@@ -1,50 +1,97 @@
-# Welcome to your Expo app 👋
+📺 SEEme OTT Streamer (React Native - Expo)
+A lightweight offline streaming app built using React Native and Expo Router. This project demonstrates core OTT features like HLS video playback, offline saving, continue watching, and graceful handling of network/video failures — built as a developer assignment for SEEme.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+⚙️ Setup Instructions
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
+1. Clone the Repository
+   bash
+   Copy
+   Edit
+   git clone https://github.com/your-username/seeme-ott-starter.git
+   cd seeme-ott-starter
+2. Install Dependencies
+   bash
+   Copy
+   Edit
    npm install
-   ```
 
-2. Start the app
+# or
 
-   ```bash
-   npx expo start
-   ```
+yarn install 3. Start the Development Server
+bash
+Copy
+Edit
+npx expo start
+Open in Expo Go (mobile) or an emulator (Android/iOS).
 
-In the output, you'll find options to open the app in a
+🧠 Assumptions
+Videos are streamed using public .m3u8 HLS URLs.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Video downloads are stored in the app's sandbox using expo-file-system.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Playback should resume from the last position unless the video is >95% watched.
 
-## Get a fresh project
+Fallback thumbnails and graceful error handling are acceptable alternatives to video previews.
 
-When you're ready, run:
+Expo Router is used with the new file-based routing system.
 
-```bash
-npm run reset-project
-```
+The app targets modern mobile devices with adequate permissions and storage.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+✅ Features Implemented
+Feature Status
+Landing screen with video cards ✅ Complete
+Fullscreen video player (remote/local) ✅ Complete
+Continue Watching section ✅ Complete
+Download videos to local storage ✅ Complete
+Resume playback from last watched time ✅ Complete
+Graceful handling of broken video URLs ✅ Complete
+Fallback image for failed thumbnails ✅ Complete
+“Downloaded” tag after download success ✅ Complete
 
-## Learn more
+❌ Features Skipped or Optional
+Feature Status Notes
+Animated screen transitions ❌ Skipped Could be added via react-native-reanimated
+Visual “Watched” tag after 95% view ⚠️ Partial Logic handled; no badge shown yet
+Delete downloaded videos ❌ Skipped Can be implemented via long-press/delete
+Video thumbnail extracted from video ❌ Skipped Placeholder thumbnails used instead
+Persistent app state across reinstalls ❌ Skipped No file backup/restore support implemented
 
-To learn more about developing your project with Expo, look at the following resources:
+📦 Tech Stack
+React Native
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Expo SDK (with Router)
 
-## Join the community
+expo-av
 
-Join our community of developers creating universal apps.
+expo-file-system
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+AsyncStorage
+
+📁 File Overview
+bash
+Copy
+Edit
+app/
+├── index.tsx # Landing screen
+├── player.tsx # Fullscreen video player
+
+src/
+├── constants/
+│ └── videos.ts # Video metadata
+├── services/
+│ ├── download.ts # Download logic
+│ └── storage.ts # Watched progress handling
+└── types/
+└── video.ts # Type definitions
+
+
+🧪 Testing Scenarios
+✅ Play a video and seek → exit → re-enter → resumes from last timestamp
+
+✅ Download a video → disable WiFi → confirm offline playback
+
+✅ Click thumbnail with broken URL → fallback image displays
+
+✅ Broken .m3u8 → video doesn't crash the app
+
+✅ “Continue Watching” list appears for partially watched videos
