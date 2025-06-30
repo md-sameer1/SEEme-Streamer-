@@ -1,97 +1,112 @@
-📺 SEEme OTT Streamer (React Native - Expo)
-A lightweight offline streaming app built using React Native and Expo Router. This project demonstrates core OTT features like HLS video playback, offline saving, continue watching, and graceful handling of network/video failures — built as a developer assignment for SEEme.
+# 🎥 SEEme OTT Streamer (React Native + Expo)
 
-⚙️ Setup Instructions
+A mini OTT streaming app built with **React Native** using **Expo Router**, designed for video playback, offline viewing, and progress tracking. Developed as part of a developer assignment for **SEEme**.
 
-1. Clone the Repository
-   bash
-   Copy
-   Edit
-   git clone https://github.com/your-username/seeme-ott-starter.git
-   cd seeme-ott-starter
-2. Install Dependencies
-   bash
-   Copy
-   Edit
-   npm install
+---
 
+## ✨ Features
+
+✅ Landing screen with video list  
+✅ Fullscreen video playback with native controls  
+✅ Resume from last watched time (Continue Watching)  
+✅ Offline downloads and local playback  
+✅ Fallback for broken video URLs & thumbnails  
+✅ Simple, modular file structure
+
+---
+
+## 🚀 Setup Instructions
+
+1. **Clone the repo**
+
+```bash
+git clone https://github.com/your-username/seeme-ott-starter.git
+cd seeme-ott-starter
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
 # or
+yarn
+Start the app
 
-yarn install 3. Start the Development Server
 bash
 Copy
 Edit
 npx expo start
-Open in Expo Go (mobile) or an emulator (Android/iOS).
+Scan the QR code with Expo Go on your device
 
-🧠 Assumptions
-Videos are streamed using public .m3u8 HLS URLs.
+Or run on an Android/iOS simulator
 
-Video downloads are stored in the app's sandbox using expo-file-system.
-
-Playback should resume from the last position unless the video is >95% watched.
-
-Fallback thumbnails and graceful error handling are acceptable alternatives to video previews.
-
-Expo Router is used with the new file-based routing system.
-
-The app targets modern mobile devices with adequate permissions and storage.
-
-✅ Features Implemented
-Feature Status
-Landing screen with video cards ✅ Complete
-Fullscreen video player (remote/local) ✅ Complete
-Continue Watching section ✅ Complete
-Download videos to local storage ✅ Complete
-Resume playback from last watched time ✅ Complete
-Graceful handling of broken video URLs ✅ Complete
-Fallback image for failed thumbnails ✅ Complete
-“Downloaded” tag after download success ✅ Complete
-
-❌ Features Skipped or Optional
-Feature Status Notes
-Animated screen transitions ❌ Skipped Could be added via react-native-reanimated
-Visual “Watched” tag after 95% view ⚠️ Partial Logic handled; no badge shown yet
-Delete downloaded videos ❌ Skipped Can be implemented via long-press/delete
-Video thumbnail extracted from video ❌ Skipped Placeholder thumbnails used instead
-Persistent app state across reinstalls ❌ Skipped No file backup/restore support implemented
-
-📦 Tech Stack
-React Native
-
-Expo SDK (with Router)
-
-expo-av
-
-expo-file-system
-
-AsyncStorage
-
-📁 File Overview
-bash
+📁 Project Structure
+css
 Copy
 Edit
-app/
-├── index.tsx # Landing screen
-├── player.tsx # Fullscreen video player
+seeme-ott-starter/
+├── app/
+│   ├── index.tsx        # Landing screen (video list)
+│   └── player.tsx       # Fullscreen video player
+├── src/
+│   ├── constants/
+│   │   └── videos.ts    # Predefined video data
+│   ├── services/
+│   │   ├── download.ts  # Video download logic
+│   │   └── storage.ts   # Save/retrieve watch progress
+│   └── types/
+│       └── video.ts     # Video type definitions
+🧠 Assumptions
+HLS .m3u8 streams are always public
 
-src/
-├── constants/
-│ └── videos.ts # Video metadata
-├── services/
-│ ├── download.ts # Download logic
-│ └── storage.ts # Watched progress handling
-└── types/
-└── video.ts # Type definitions
+Downloaded videos are stored locally with no expiry
 
+Duration values are in seconds for easier math
 
-🧪 Testing Scenarios
-✅ Play a video and seek → exit → re-enter → resumes from last timestamp
+User can’t delete downloaded videos (not required)
 
-✅ Download a video → disable WiFi → confirm offline playback
+Offline playback is verified manually (e.g., airplane mode)
 
-✅ Click thumbnail with broken URL → fallback image displays
+✅ Features Implemented
+Feature	Status
+Landing screen with 5 video cards	✅ Complete
+Fullscreen video player	✅ Complete
+Continue watching logic	✅ Complete
+Download video for offline playback	✅ Complete
+Resume playback from saved position	✅ Complete
+Graceful error handling (video & image)	✅ Complete
+Download status label	✅ Complete
 
-✅ Broken .m3u8 → video doesn't crash the app
+❌ Features Skipped / Optional
+Feature	Reason / Status
+Animated screen transitions	Not essential for core features
+Visual tag for 95% watched	Logic exists, UI not shown
+Video thumbnails extracted from video	Used placeholders for simplicity
+Delete downloaded video	Out of scope
+Offline-only filter	Not required
 
-✅ “Continue Watching” list appears for partially watched videos
+📺 Sample Videos
+Big Buck Bunny
+
+Sintel
+
+Tears of Steel
+
+Wildlife
+
+All videos are .m3u8 format for HLS playback.
+
+🧪 Testing Tips
+Download a video, switch to airplane mode → try playback
+
+Play a video, seek forward, exit → check “Continue Watching”
+
+Break a thumbnail URL → fallback image appears
+
+Tap “Download” → status label updates to “Downloaded”
+
+👨‍💻 Author
+Md Sameer
+Frontend Developer & Software Engineer in Progress
+🔗 GitHub
+```
