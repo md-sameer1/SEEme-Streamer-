@@ -23,22 +23,27 @@ A mini OTT streaming app built with **React Native** using **Expo Router**, desi
 git clone https://github.com/your-username/seeme-ott-starter.git
 cd seeme-ott-starter
 Install dependencies
+```
 
-bash
+```bash
 Copy
 Edit
 npm install
+```
+
 # or
+
 yarn
 Start the app
 
-bash
+```bash
 Copy
 Edit
 npx expo start
 Scan the QR code with Expo Go on your device
 
 Or run on an Android/iOS simulator
+```
 
 📁 Project Structure
 css
@@ -46,16 +51,16 @@ Copy
 Edit
 seeme-ott-starter/
 ├── app/
-│   ├── index.tsx        # Landing screen (video list)
-│   └── player.tsx       # Fullscreen video player
+│ ├── index.tsx # Landing screen (video list)
+│ └── player.tsx # Fullscreen video player
 ├── src/
-│   ├── constants/
-│   │   └── videos.ts    # Predefined video data
-│   ├── services/
-│   │   ├── download.ts  # Video download logic
-│   │   └── storage.ts   # Save/retrieve watch progress
-│   └── types/
-│       └── video.ts     # Video type definitions
+│ ├── constants/
+│ │ └── videos.ts # Predefined video data
+│ ├── services/
+│ │ ├── download.ts # Video download logic
+│ │ └── storage.ts # Save/retrieve watch progress
+│ └── types/
+│ └── video.ts # Video type definitions
 🧠 Assumptions
 HLS .m3u8 streams are always public
 
@@ -68,22 +73,22 @@ User can’t delete downloaded videos (not required)
 Offline playback is verified manually (e.g., airplane mode)
 
 ✅ Features Implemented
-Feature	Status
-Landing screen with 5 video cards	✅ Complete
-Fullscreen video player	✅ Complete
-Continue watching logic	✅ Complete
-Download video for offline playback	✅ Complete
-Resume playback from saved position	✅ Complete
-Graceful error handling (video & image)	✅ Complete
-Download status label	✅ Complete
+Feature Status
+Landing screen with 5 video cards ✅ Complete
+Fullscreen video player ✅ Complete
+Continue watching logic ✅ Complete
+Download video for offline playback ✅ Complete
+Resume playback from saved position ✅ Complete
+Graceful error handling (video & image) ✅ Complete
+Download status label ✅ Complete
 
 ❌ Features Skipped / Optional
-Feature	Reason / Status
-Animated screen transitions	Not essential for core features
-Visual tag for 95% watched	Logic exists, UI not shown
-Video thumbnails extracted from video	Used placeholders for simplicity
-Delete downloaded video	Out of scope
-Offline-only filter	Not required
+Feature Reason / Status
+Animated screen transitions Not essential for core features
+Visual tag for 95% watched Logic exists, UI not shown
+Video thumbnails extracted from video Used placeholders for simplicity
+Delete downloaded video Out of scope
+Offline-only filter Not required
 
 📺 Sample Videos
 Big Buck Bunny
@@ -109,4 +114,3 @@ Tap “Download” → status label updates to “Downloaded”
 Md Sameer
 Frontend Developer & Software Engineer in Progress
 🔗 GitHub
-```
