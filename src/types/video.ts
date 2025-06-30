@@ -1,7 +1,7 @@
 export interface VideoItem {
   id: string;
   title: string;
-  duration: string;
+  duration: number;
   thumbnail: string;
   url: string;
   fallbackUrl?: string;
