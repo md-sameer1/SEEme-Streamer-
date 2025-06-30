@@ -166,7 +166,7 @@ _All videos are in `.m3u8` format for HLS streaming._
 
 **Md Sameer**  
 Frontend Developer & Software Engineer  
-🔗 [GitHub Profile](https://github.com/your-username)
+🔗 [GitHub Profile](https://github.com/md-sameer1)
 
 ---
 
